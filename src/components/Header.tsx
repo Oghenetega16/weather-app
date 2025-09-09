@@ -61,7 +61,7 @@ export default function App() {
     ];
 
     return (
-        <header className="flex justify-between font-dmsans">
+        <header className="flex justify-between">
             <img src={logoUrl} alt="Logo" className="w-35" />
             <div className="flex flex-col relative">
                 <div 
