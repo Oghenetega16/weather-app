@@ -39,7 +39,7 @@ export default function WeatherReport() {
     ]
 
     return (
-        <div className="sm:flex sm:items-center sm:gap-3 md:justify-center lg:flex-col lg:justify-start">
+        <div className="sm:flex sm:items-center sm:gap-3 md:justify-center lg:flex-col lg:items-start">
             <div className="relative mt-7">
                 {deviceType === 'mobile' ? 
                     <svg xmlns="http://www.w3.org/2000/svg" width="343" height="286" fill="none" viewBox="0 0 343 286" className="mx-auto">
@@ -99,7 +99,7 @@ export default function WeatherReport() {
                         </defs>
                     </svg>
                 }
-                <div className="w-full px-10 space-y-4 absolute -top-12 translate-y-1/2 flex flex-col text-center sm:w-fit">
+                <div className="w-full px-10 space-y-4 absolute -top-12 translate-y-1/2 flex flex-col text-center sm:w-fit lg:flex-row lg:justify-between lg:items-center lg:translate-x-1/4">
                     <div>
                         <h1 className="font-semibold tracking-wide text-2xl mb-1">Berlin, Germany</h1>
                         <span className="text-neutral-300">Tuesday, Sept 8, 2025</span>
