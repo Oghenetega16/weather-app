@@ -1,7 +1,8 @@
-import DailyForecast from './components/DailyForecast';
 import Header from './components/Header';
 import SearchPanel from './components/SearchPanel';
 import WeatherReport from './components/WeatherReport';
+import DailyForecast from './components/DailyForecast';
+import HourlyForecast from './components/HourlyForecast';
 
 export default function App() {
     return (
@@ -9,8 +10,11 @@ export default function App() {
             <Header />
             <SearchPanel />
             <div>
-                <WeatherReport />
-                <DailyForecast />
+                <div>
+                    <WeatherReport />
+                    <DailyForecast />
+                </div>
+                <HourlyForecast />
             </div>
         </main>
     )

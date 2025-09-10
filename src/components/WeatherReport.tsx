@@ -7,7 +7,7 @@ export default function WeatherReport() {
     useEffect(() => {
         const handleResize = () => {
             const screenWidth = window.innerWidth;
-            if (screenWidth >= 768 ) {
+            if (screenWidth >= 1024 ) {
                 setDeviceType('desktop');
             } else {
                 setDeviceType('mobile');
@@ -39,7 +39,7 @@ export default function WeatherReport() {
     ]
 
     return (
-        <div className="">
+        <div className="sm:flex sm:items-center sm:gap-3 md:justify-center lg:flex-col lg:justify-start">
             <div className="relative mt-7">
                 {deviceType === 'mobile' ? 
                     <svg xmlns="http://www.w3.org/2000/svg" width="343" height="286" fill="none" viewBox="0 0 343 286" className="mx-auto">
@@ -99,22 +99,22 @@ export default function WeatherReport() {
                         </defs>
                     </svg>
                 }
-                <div className="absolute top-0 translate-y-1/2 translate-x-1/2 flex flex-col text-center">
+                <div className="w-full px-10 space-y-4 absolute -top-12 translate-y-1/2 flex flex-col text-center sm:w-fit">
                     <div>
-                        <h1 className="font-bold text-xl">Berlin, Germany</h1>
+                        <h1 className="font-semibold tracking-wide text-2xl mb-1">Berlin, Germany</h1>
                         <span className="text-neutral-300">Tuesday, Sept 8, 2025</span>
                     </div>
-                    <div className="flex items-center justify-between mx-auto">
-                        <img src={sunIcon} alt="sun" className="w-25" />
-                        <h1 className="text-5xl">68°</h1>
+                    <div className="flex items-center justify-between">
+                        <img src={sunIcon} alt="sun" className="w-30" />
+                        <i className="text-8xl font-bold">68°</i>
                     </div>
                 </div>
             </div>
-            <div className="grid grid-cols-2 gap-3 my-5">
+            <div className="grid grid-cols-2 gap-3 my-5 sm:mt-12 md:grid-cols-4 lg:w-full">
                 {reports.map((report, index) => (
-                    <div key={index} className="bg-[#25253F] rounded-xl border border-neutral-600 p-5"> 
-                        <p className="capitalize text-neutral-300 mb-3">{report.heading}</p>
-                        <h1 className="text-2xl">{report.value}</h1>
+                    <div key={index} className="bg-[#25253F] rounded-xl border border-neutral-600 p-5 sm:h-30 lg:w-full"> 
+                        <p className="capitalize text-neutral-300 mb-3 sm:text-xs lg:text-base">{report.heading}</p>
+                        <h1 className="text-3xl font-light sm:text-2xl lg:text-3xl">{report.value}</h1>
                     </div>
                 ))}
             </div>

@@ -47,13 +47,13 @@ export default function DailyForecast() {
 
     return (
         <div>
-            <h1>Daily forecast</h1>
-            <div className="grid grid-cols-3 gap-3">
+            <h1 className="mb-4 sm:mt-8">Daily forecast</h1>
+            <div className="grid grid-cols-3 gap-3 sm:grid-cols-7">
                 {dailyForecast.map((forecast, index) => (
-                    <div key={index} className="text-center rounded-lg bg-[#25253F] p-2">
+                    <div key={index} className="text-center rounded-lg border border-neutral-600 bg-[#25253F] p-2">
                         <h2 className="capitalize">{forecast.day}</h2>
-                        <img src={forecast.image} alt="" />
-                        <div className="flex justify-between">
+                        <img src={forecast.image} alt="" className="" />
+                        <div className="flex justify-between text-sm sm:text-xs">
                             <p>{forecast.max}</p>
                             <p>{forecast.min}</p>
                         </div>
