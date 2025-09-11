@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import sunIcon from "../../public/assets/images/icon-sunny.webp";
+// import mobileDesktopImage from "../../public/assets/images/bg-today-large.svg";
+// import mobileDesktopImage from "../../public/assets/images/bg-today-large.svg";
 
 export default function WeatherReport() {
     const [deviceType, setDeviceType] = useState('mobile');
@@ -110,7 +112,7 @@ export default function WeatherReport() {
                     </div>
                 </div>
             </div>
-            <div className="grid grid-cols-2 gap-3 my-5 sm:mt-12 lg:w-full lg:grid-cols-4 lg:gap-4">
+            <div className="grid grid-cols-2 gap-3 my-5 sm:mt-12 lg:w-full lg:grid-cols-4 lg:gap-4 lg:my-0">
                 {reports.map((report, index) => (
                     <div key={index} className="bg-[#25253F] rounded-xl border border-neutral-600 p-5 sm:h-30 lg:w-full"> 
                         <p className="capitalize text-neutral-300 mb-3 sm:text-xs lg:text-base">{report.heading}</p>
