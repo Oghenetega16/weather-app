@@ -21,7 +21,7 @@ export default function DailyForecast() {
         },
         {
             day: "fri",
-            image: "/assets/images/icon-overcast.webp",
+            image: "/assets/images/icon-partly-cloudy.webp",
             max: "77°",
             min: "55°"
         },

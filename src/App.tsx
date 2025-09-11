@@ -9,8 +9,8 @@ export default function App() {
         <main className="bg-[#02012B] p-4 min-h-screen sm:p-8 font-dmsans">
             <Header />
             <SearchPanel />
-            <div>
-                <div>
+            <div className="lg:flex justify-between gap-4">
+                <div className="lg:w-1/2">
                     <WeatherReport />
                     <DailyForecast />
                 </div>

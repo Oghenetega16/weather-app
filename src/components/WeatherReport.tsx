@@ -39,8 +39,8 @@ export default function WeatherReport() {
     ]
 
     return (
-        <div className="sm:flex sm:items-center sm:gap-3 md:justify-center lg:flex-col lg:items-start">
-            <div className="relative mt-7">
+        <div className="sm:flex sm:items-center sm:gap-3 md:justify-center lg:w-xl lg:flex-col lg:items-start">
+            <div className="relative mt-7 lg:mt-0">
                 {deviceType === 'mobile' ? 
                     <svg xmlns="http://www.w3.org/2000/svg" width="343" height="286" fill="none" viewBox="0 0 343 286" className="mx-auto">
                         <g filter="url(#a)">
@@ -69,7 +69,7 @@ export default function WeatherReport() {
                             </filter>
                         </defs>
                     </svg> :  
-                    <svg xmlns="http://www.w3.org/2000/svg" width="800" height="286" fill="none" viewBox="0 0 800 286">
+                    <svg xmlns="http://www.w3.org/2000/svg" width={window.innerWidth <= 1024 ? '620' : '800'} height="286" fill="none" viewBox="0 0 800 286">
                         <g filter="url(#a)">
                             <g clip-path="url(#b)"><rect width="800" height="286" fill="url(#c)" rx="20"/>
                                 <path fill="url(#d)" d="M457.198 330.638c2.825-36.754 34.955-64.261 71.768-61.446a66.856 66.856 0 0 1 22.46 5.728c.731-.984 1.464-1.966 2.226-2.922.02-.307.023-.608.045-.915 2.823-36.754 34.953-64.261 71.765-61.446a66.611 66.611 0 0 1 31.937 10.99c8.574-24.938 33.182-41.957 60.743-39.849 17.501 1.34 32.648 10.123 42.567 22.999 12.405-37.778 49.376-63.688 90.858-60.514 34.007 2.603 62.031 24.073 74.61 53.34a66.612 66.612 0 0 1 30.909-4.981c36.812 2.816 64.364 34.893 61.544 71.645-.06.9-.16 1.79-.27 2.68a88.82 88.82 0 0 1 21.88-1.029c48.74 3.73 85.23 46.202 81.5 94.863-3.74 48.662-46.28 85.09-95.03 81.36-1.03-.079-2.04-.201-3.05-.312-11.51 16.586-31.267 26.815-52.871 25.164-15.525-1.187-29.171-8.303-38.907-18.94-28.089 23.439-64.99 36.404-104.375 33.388-26.698-2.042-51.134-11.188-71.656-25.394-13.161 18.359-35.329 29.606-59.521 27.755-22.73-1.738-41.918-14.639-52.619-32.899-12.495 9.297-28.27 14.315-45.028 13.032-33.477-2.563-59.29-29.321-61.576-61.789a67.053 67.053 0 0 1-18.363 1.134c-36.809-2.813-64.364-34.888-61.546-71.642Z"/>
@@ -110,7 +110,7 @@ export default function WeatherReport() {
                     </div>
                 </div>
             </div>
-            <div className="grid grid-cols-2 gap-3 my-5 sm:mt-12 md:grid-cols-4 lg:w-full">
+            <div className="grid grid-cols-2 gap-3 my-5 sm:mt-12 lg:w-full lg:grid-cols-4 lg:gap-4">
                 {reports.map((report, index) => (
                     <div key={index} className="bg-[#25253F] rounded-xl border border-neutral-600 p-5 sm:h-30 lg:w-full"> 
                         <p className="capitalize text-neutral-300 mb-3 sm:text-xs lg:text-base">{report.heading}</p>
