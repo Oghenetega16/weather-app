@@ -54,7 +54,7 @@ export default function App() {
                     unit: "Millimeters (mm)"
                 },
                 {
-                    unit: "Kilometers (km)"
+                    unit: "Inches (in)"
                 }
             ]
         },

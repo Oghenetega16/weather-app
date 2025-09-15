@@ -6,8 +6,8 @@ import HourlyForecast from './components/HourlyForecast';
 
 export default function App() {
     return (
-        <main className="bg-[#02012B] p-4 min-h-screen sm:p-8 font-dmsans lg:py-10 lg:px-15">
-            <div className="mx-auto lg:w-4xl xl:w-5xl">
+        <main className="bg-[#02012B] p-4 min-h-screen sm:p-8 font-dmsans lg:py-10 lg:px-16">
+            <div className="mx-auto lg:max-w-4xl xl:max-w-5xl">
                 <Header />
                 <SearchPanel />
                 <div className="lg:flex lg:gap-6 lg:justify-center lg:mt-12">
