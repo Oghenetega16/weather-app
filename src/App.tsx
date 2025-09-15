@@ -10,12 +10,14 @@ export default function App() {
             <div className="mx-auto lg:w-4xl xl:w-5xl">
                 <Header />
                 <SearchPanel />
-                <div className="lg:flex lg:gap-4 lg:justify-center lg:mt-12">
-                    <div className="lg:w-3xl">
+                <div className="lg:flex lg:gap-6 lg:justify-center lg:mt-12">
+                    <div className="">
                         <WeatherReport />
                         <DailyForecast />
                     </div>
-                    <HourlyForecast />
+                    <div className="">
+                        <HourlyForecast />
+                    </div>
                 </div>
             </div>
         </main>

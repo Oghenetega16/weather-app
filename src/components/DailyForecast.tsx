@@ -46,8 +46,8 @@ export default function DailyForecast() {
     ]
 
     return (
-        <div>
-            <h1 className="mb-4 sm:mt-8">Daily forecast</h1>
+        <div className="sm:mt-8 lg:mt-12 xl:mt-7">
+            <h1 className="mb-4">Daily forecast</h1>
             <div className="grid grid-cols-3 gap-3 sm:grid-cols-7">
                 {dailyForecast.map((forecast, index) => (
                     <div key={index} className="text-center rounded-lg border border-neutral-600 bg-[#25253F] p-2">

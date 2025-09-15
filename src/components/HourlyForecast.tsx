@@ -59,7 +59,7 @@ export default function HourlyForecast() {
 
     return (
         <div className="relative my-8 bg-[#25253F] p-4 rounded-xl lg:w-xs lg:my-0">
-            <div className="rounded-xl flex items-center justify-between">
+            <div className="rounded-xl flex items-center justify-between cursor-pointer">
                 <h1 className="">Hourly forecast</h1>
                 <div className="flex items-center gap-3 bg-[#3C3A5D] px-3 py-1 rounded"  onClick={handleDropDownToggle}>
                     <p>{selectDay}</p>
