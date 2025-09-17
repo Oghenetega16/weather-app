@@ -1,16 +1,47 @@
-import searchUrl from '../../public/assets/images/icon-search.svg';
+import React, { useState } from "react";
+import searchUrl from "../../public/assets/images/icon-search.svg";
 
-export default function App() {
+type Props = {
+    onSearch?: (query: string) => void;
+    geolocation?: () => void;
+    locationName?: string | null;
+    searching?: boolean;
+};
+
+export default function SearchPanel({ onSearch, geolocation, locationName, searching }: Props) {
+    const [query, setQuery] = useState("");
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!query.trim()) return;
+        if (typeof onSearch === "function") onSearch(query.trim());
+    };
+
     return (
         <div className="text-center mt-12">
-            <h1 className="font-bricolage text-5xl font-extrabold mb-10 leading-15 w-75 mx-auto sm:w-full">How's the sky looking today?</h1>
-            <form className="flex flex-col gap-3 sm:flex-row sm:space-y-0 md:w-xl md:mx-auto">
-                <div className='relative sm:w-full cursor-pointer'>
-                    <input type="text" placeholder="Search for a place..." className="bg-[#25253F] w-full rounded-lg py-3 px-14 placeholder:text-neutral-200" />
-                    <img src={searchUrl} alt="search icon" className="absolute top-3 left-5" />
-                </div>
-                <button className="w-full bg-[#4657D9] rounded-lg py-3 sm:w-1/6 cursor-pointer focus:outline-offset-3 focus:ring-2 focus:ring-[#4657D9] hover:bg-[#2C1BA0]">Search</button>
-            </form>
+        <h1 className="font-bricolage text-5xl font-extrabold mb-10 leading-15 w-75 mx-auto sm:w-full">How's the sky looking today?</h1>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row sm:space-y-0 md:w-xl md:mx-auto">
+            <div className="relative sm:w-full cursor-pointer">
+            <input
+                type="text"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Search for a place..."
+                className="bg-[#25253F] w-full rounded-lg py-3 px-14 placeholder:text-neutral-200"
+            />
+            <img src={searchUrl} alt="search icon" className="absolute top-3 left-5" />
+            </div>
+            <button className="w-full bg-[#4657D9] rounded-lg py-3 sm:w-1/6 cursor-pointer focus:outline-offset-3 focus:ring-2 focus:ring-[#4657D9] hover:bg-[#2C1BA0]">
+            Search
+            </button>
+        </form>
+
+        {/* <div className="mt-3 flex items-center justify-center gap-4 text-sm">
+            <button className="text-neutral-300 underline" type="button" onClick={() => typeof geolocation === "function" && geolocation()}>
+            Use my location
+            </button>
+            {searching ? <span className="text-neutral-300">Searching…</span> : locationName ? <span className="text-neutral-300">Showing: {locationName}</span> : null}
+        </div> */}
         </div>
-    )
+    );
 }
