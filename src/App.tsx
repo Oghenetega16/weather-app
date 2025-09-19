@@ -4,6 +4,8 @@ import WeatherReport from "./components/WeatherReport";
 import DailyForecast from "./components/DailyForecast";
 import HourlyForecast from "./components/HourlyForecast";
 import useOpenMeteo from "./hooks/useOpenMeteo";
+import ErrorState from "./components/ErrorState";
+import NoResultFound from "./components/NoResultFound";
 
 export default function App() {
     const {

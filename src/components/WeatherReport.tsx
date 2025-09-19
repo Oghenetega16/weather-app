@@ -14,8 +14,8 @@ export default function WeatherReport({ forecast, loading, error, locationName }
 
     useEffect(() => {
         const handleResize = () => {
-        const screenWidth = window.innerWidth;
-        setDeviceType(screenWidth >= 1024 ? "desktop" : "mobile");
+            const screenWidth = window.innerWidth;
+            setDeviceType(screenWidth >= 1024 ? "desktop" : "mobile");
         };
         handleResize();
         window.addEventListener("resize", handleResize);

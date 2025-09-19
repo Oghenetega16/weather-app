@@ -1,4 +1,3 @@
-// src/hooks/useOpenMeteo.ts
 import { useEffect, useRef, useState } from "react";
 
 /* --- Types for Open-Meteo (partial — only the fields we use) --- */
@@ -38,7 +37,7 @@ type Coords = {
     name?: string | null;
 };
 
-    export default function useOpenMeteo(initial: Coords = { latitude: null, longitude: null, name: null }) {
+export default function useOpenMeteo(initial: Coords = { latitude: null, longitude: null, name: null }) {
     const [coords, setCoords] = useState<Coords>(initial);
     const [data, setData] = useState<OpenMeteoResponse | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
@@ -51,24 +50,25 @@ type Coords = {
         setGeoLoading(true);
         setError(null);
         try {
-        const url = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=5&language=en&format=json`;
-        const res = await fetch(url);
-        if (!res.ok) throw new Error(`Geocoding failed (${res.status})`);
-        const json = await res.json();
-        if (json?.results?.length > 0) {
-            const { latitude, longitude, name, country, admin1 } = json.results[0];
-            const pretty = `${name}${admin1 ? ", " + admin1 : ""}${country ? ", " + country : ""}`;
-            setCoords({ latitude, longitude, name: pretty });
-            setGeoLoading(false);
-            return { latitude, longitude, name: pretty };
-        } else {
-            setGeoLoading(false);
-            throw new Error("Location not found");
-        }
+            const url = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=5&language=en&format=json`;
+            const res = await fetch(url);
+            if (!res.ok) throw new Error(`Geocoding failed (${res.status})`);
+            const json = await res.json();
+
+            if (json?.results?.length > 0) {
+                const { latitude, longitude, name, country, admin1 } = json.results[0];
+                const pretty = `${name}${admin1 ? ", " + admin1 : ""}${country ? ", " + country : ""}`;
+                setCoords({ latitude, longitude, name: pretty });
+                setGeoLoading(false);
+                return { latitude, longitude, name: pretty };
+            } else {
+                setGeoLoading(false);
+                throw new Error("Location not found");
+            }
         } catch (err: any) {
-        setGeoLoading(false);
-        setError(err instanceof Error ? err : new Error(String(err)));
-        return null;
+            setGeoLoading(false);
+            setError(err instanceof Error ? err : new Error(String(err)));
+            return null;
         }
     }
 
@@ -82,11 +82,11 @@ type Coords = {
         if (!("geolocation" in navigator)) return;
         const geoOpts: PositionOptions = { timeout: 8000 };
         navigator.geolocation.getCurrentPosition(
-        (pos) => setCoords({ latitude: pos.coords.latitude, longitude: pos.coords.longitude, name: null }),
-        () => {
-            // silent fail — UI can provide default fallback if desired
-        },
-        geoOpts
+            (pos) => setCoords({ latitude: pos.coords.latitude, longitude: pos.coords.longitude, name: null }),
+            () => {
+                // silent fail — UI can provide default fallback if desired
+            },
+                geoOpts
         );
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
